@@ -1,81 +1,123 @@
-📌 Overview
+# AI-Powered Tax Appeal Lead Scoring System
 
-This project delivers an AI-powered lead scoring system for property tax appeal firms, enabling them to identify and prioritise property owners most likely to convert into clients.
+## Overview
+This project presents a machine learning–driven lead scoring system designed for property tax appeal firms. The system identifies and prioritises property owners most likely to convert into clients by analysing structured property-level data.
 
-By leveraging property-level data such as market value, trestle score, and ownership characteristics, the system predicts conversion probability and assigns a revenue-based priority score to each lead.
+Each lead is assigned:
+- A calibrated **conversion probability**
+- An **expected revenue estimate**
+- A **priority segment** for sales action
 
-🚀 Key Features
+The solution replaces manual lead qualification with a scalable, data-driven approach.
 
-✅ Predictive Lead Scoring
+---
 
-Estimates probability of client conversion using machine learning
+## Key Features
 
-✅ Actionable Segmentation
+- **Predictive Lead Scoring**  
+  Machine learning model estimates the likelihood of client conversion.
 
-Categorises leads into:
-🔴 Call Immediately
-🟠 Nurture
-🔵 Automate
-⚪ Deprioritise
+- **Lead Segmentation**  
+  Leads are categorised into four actionable groups:
+  - Call Immediately
+  - Nurture
+  - Automate
+  - Deprioritise
 
-✅ Revenue-Based Prioritisation
+- **Revenue-Based Prioritisation**  
+  Expected revenue is calculated to rank leads by business value.
 
-Expected Revenue =
-Conversion Probability × Market Value × Savings Rate × Contingency Fee
+- **Interactive Application**  
+  Streamlit interface enables real-time scoring and decision support.
 
-✅ Interactive Web App
+---
 
-Real-time scoring via Streamlit interface
-Visual insights with dynamic charts
-🖼️ System Architecture
-🛠️ Tech Stack
-Category	Tools Used
-Language	Python
-Data Processing	Pandas, NumPy
-Machine Learning	XGBoost
-Model Evaluation	Scikit-learn
-Imbalance Handling	SMOTE (Imbalanced-learn)
-Visualization	Plotly
-Web App	Streamlit
-Deployment	Pickle serialization
-📊 Model Performance
-🎯 Strong ROC-AUC score on held-out test data
-🔁 Validated with Stratified K-Fold Cross-Validation
-📏 Platt Scaling Calibration ensures reliable probabilities
-🔍 Key Predictors
-Trestle Score
-Log-transformed Market Value
-Interaction effects between features
-💼 Business Impact
+## Methodology
 
-💡 Transforms lead qualification from intuition-based → data-driven
-📈 Enables prioritisation based on expected ROI
-⚡ Helps sales teams focus on high-value opportunities
-📊 Scales across entire prospect databases automatically
+### Data Processing
+- Input data sourced from Excel files
+- Feature engineering includes:
+  - Log transformations for skewed variables
+  - Frequency and quantile encoding
+  - Interaction features
 
-Example outputs include:
+### Model Development
+- Primary model: **XGBoost (XGBClassifier)**
+- Training approach:
+  - Stratified train-validation split
+  - Early stopping to prevent overfitting
+  - Regularisation tuning
 
-Conversion Probability
-Expected Revenue
-Lead Score
-Segment Classification
+### Imbalance Handling
+- **SMOTE** applied when class imbalance exceeds threshold  
+- Fallback: `scale_pos_weight` parameter
 
-📂 Project Structure
-├── data/
-├── models/
-├── notebooks/
-├── app.py
-├── requirements.txt
-└── README.md
+### Probability Calibration
+- **Platt Scaling (CalibratedClassifierCV)** used to ensure predicted probabilities reflect true likelihoods
 
-Contributions are welcome!
-Feel free to fork this repo and submit a pull request.
+### Evaluation Metrics
+- ROC-AUC
+- Precision / Recall
+- F1 Score
+- Confusion Matrix
+- Cross-validation (Stratified K-Fold)
 
-📜 License
+---
 
-This project is licensed under the MIT License.
+## Model Performance
 
-⭐ Acknowledgements
-Open-source ML ecosystem
-Streamlit for rapid UI development
-XGBoost for high-performance tabular modelling
+- Strong ROC-AUC on held-out test set  
+- Consistent performance across cross-validation folds  
+- Well-calibrated probability outputs suitable for business use  
+
+### Key Predictors
+- Trestle Score  
+- Log-transformed Market Value  
+- Feature interaction terms  
+
+---
+
+## Business Impact
+
+- Enables **objective lead prioritisation**
+- Improves **sales efficiency and targeting**
+- Quantifies opportunity using **expected revenue**
+- Reduces reliance on manual or intuition-based processes
+
+---
+
+## Application
+
+The Streamlit application allows users to:
+- Input property attributes
+- Generate real-time predictions
+- View:
+  - Conversion probability
+  - Expected revenue
+  - Lead score
+  - Segment classification
+  - Recommended action
+
+---
+
+## Tech Stack
+
+| Category            | Tools |
+|---------------------|------|
+| Language            | Python |
+| Data Processing     | Pandas, NumPy |
+| Machine Learning    | XGBoost |
+| Model Utilities     | Scikit-learn |
+| Imbalance Handling  | Imbalanced-learn (SMOTE) |
+| Visualisation       | Plotly |
+| Web Framework       | Streamlit |
+
+---
+
+## Installation
+
+```bash
+git clone https://github.com/yourusername/tax-appeal-lead-scoring.git
+cd tax-appeal-lead-scoring
+pip install -r requirements.txt
+streamlit run app.py
