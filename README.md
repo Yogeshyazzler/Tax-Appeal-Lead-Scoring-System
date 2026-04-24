@@ -113,11 +113,3 @@ The Streamlit application allows users to:
 | Web Framework       | Streamlit |
 
 ---
-
-## Installation
-
-```bash
-git clone https://github.com/yourusername/tax-appeal-lead-scoring.git
-cd tax-appeal-lead-scoring
-pip install -r requirements.txt
-streamlit run app.py
