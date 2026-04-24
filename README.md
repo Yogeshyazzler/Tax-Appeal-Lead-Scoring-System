@@ -37,7 +37,7 @@ Model Evaluation	Scikit-learn
 Imbalance Handling	SMOTE (Imbalanced-learn)
 Visualization	Plotly
 Web App	Streamlit
-Deployment	Pickle मॉडल serialization
+Deployment	Pickle serialization
 📊 Model Performance
 🎯 Strong ROC-AUC score on held-out test data
 🔁 Validated with Stratified K-Fold Cross-Validation
@@ -53,41 +53,13 @@ Interaction effects between features
 ⚡ Helps sales teams focus on high-value opportunities
 📊 Scales across entire prospect databases automatically
 
-🖥️ Demo Interface
-
-(Add screenshots here if available)
-
 Example outputs include:
 
 Conversion Probability
 Expected Revenue
 Lead Score
 Segment Classification
-Recommended Action
-⚙️ Installation & Usage
-# Clone repository
-git clone https://github.com/yourusername/tax-appeal-lead-scoring.git
 
-# Navigate to project folder
-cd tax-appeal-lead-scoring
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run Streamlit app
-streamlit run app.py
-🔮 Future Improvements
-🔧 Hyperparameter tuning (Optuna / Hyperopt)
-⚖️ Advanced imbalance techniques (ADASYN, cost-sensitive learning)
-💰 Data-driven revenue prediction model
-📡 Integration with external datasets (property history, tenure, etc.)
-🔄 Automated retraining & drift detection pipeline
-🌍 Future Use Cases
-CRM integration (Salesforce, HubSpot)
-Multi-region / national deployment
-Churn prediction for existing clients
-AI-driven personalised outreach
-Full property intelligence platform
 📂 Project Structure
 ├── data/
 ├── models/
@@ -95,7 +67,6 @@ Full property intelligence platform
 ├── app.py
 ├── requirements.txt
 └── README.md
-🤝 Contributing
 
 Contributions are welcome!
 Feel free to fork this repo and submit a pull request.
